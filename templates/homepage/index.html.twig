@@ -193,21 +193,21 @@
         <h2>Avis de nos clients</h2>
         <div class="testimonials-container">
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/1.jpg') | raw }}" alt="Lucas" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/1.jpg')  }}" alt="Lucas" class="testimonial-img"/>
                 <p>
                     "Service rapide et efficace. Très content de l'expérience!"
                     <br/>Lucas
                 </p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/2.jpg') | raw }}" alt="Sophie" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/2.jpg')  }}" alt="Sophie" class="testimonial-img"/>
                 <p>
                     "Des professionnels à l'écoute et des prix abordables."
                     <br/>Sophie
                 </p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/3.jpg') | raw }}" alt="Hugo" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/3.jpg')  }}" alt="Hugo" class="testimonial-img"/>
                 <br>
                 <p>"J'ai trouvé la voiture d'occasion de mes rêves à un prix incroyable."
                 </p>
@@ -215,51 +215,56 @@
                 Hugo
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/4.jpg') | raw }}" alt="Emma" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/4.jpg')  }}" alt="Emma" class="testimonial-img"/>
                 <p>"Qualité exceptionnelle et personnel amical. Recommandé!"
                     <br/>
                     Emma</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/5.jpg') | raw }}" alt="Alexandre" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/5.jpg')  }}" alt="Alexandre" class="testimonial-img"/>
                 <p>"Meilleur garage de la région, sans aucun doute."<br/>Alexandre</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/6.jpg') | raw }}" alt="Sarah" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/6.jpg')  }}" alt="Sarah" class="testimonial-img"/>
                 <p>"Ils ont réparé mon véhicule rapidement, avec un excellent service après-vente."<br/>Sarah</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/7.jpg') | raw }}" alt="Maxime" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/7.jpg')  }}" alt="Maxime" class="testimonial-img"/>
                 <p>"Très satisfait du travail réalisé sur ma voiture. Merci!"<br/>Maxime</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/8.jpg') | raw }}" alt="Léa" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/8.jpg')  }}" alt="Léa" class="testimonial-img"/>
                 <p>"Un service client hors pair et des réponses claires à mes questions."<br/>Léa</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/9.jpg') | raw }}" alt="Thomas" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/9.jpg')  }}" alt="Thomas" class="testimonial-img"/>
                 <p>"Fiable, honnête et professionnel. Je reviendrai!"<br/>Thomas</p>
             </div>
             <div class="testimonial">
-                <img src="{{ asset('img/reviews/10.jpg') | raw }}" alt="Camille" class="testimonial-img"/>
+                <img src="{{ asset('img/reviews/10.jpg')  }}" alt="Camille" class="testimonial-img"/>
                 <p>"Une équipe experte et des services de qualité supérieure."<br/>Camille</p>
             </div>
+            {% for review in reviews %}
+            <div class="testimonial">
+                <img src="{{ asset('img/reviews/'~random(1,10)~'.jpg')  }}" alt="{{ review.user.firstName }}" class="testimonial-img"/>
+                <p>{{ review.message }}<br/>{{ review.user.firstName }}</p>
+            </div>
+
+            {% endfor %}
         </div>
         {% if is_granted('ROLE_USER') %}
             <h3>Laissez votre témoignage</h3>
-            <form id="testimonial-form">
-                <input type="text" name="name" placeholder="Votre nom" required/>
-                <textarea name="comment" placeholder="Votre commentaire" required></textarea>
-                <label>Note :</label>
-                <select name="rating">
-                    <option value="5" selected>⭐⭐⭐⭐⭐</option>
-                    <option value="4">⭐⭐⭐⭐</option>
-                    <option value="3">⭐⭐⭐</option>
-                    <option value="2">⭐⭐</option>
-                    <option value="1">⭐</option>
-                </select>
-                <button type="submit" class="submit-btn">Envoyer le témoignage</button>
-            </form>
+            {{ form_start(reviewForm, { 'attr' : { 'class': 'w-50 m-auto' } }) }}
+            <div class="form-group mb-3">
+                {{ form_label(reviewForm.message,'Message',{'label_attr': {'class': 'form-label text-white'}}) }}
+                {{ form_widget(reviewForm.message) }}
+            </div>
+            <div class="form-group mb-3">
+                {{ form_label(reviewForm.rating,'Note',{'label_attr': {'class': 'form-label text-white'}}) }}
+                {{ form_widget(reviewForm.rating) }}
+            </div>
+                <button type="submit" class="btn btn-danger">Envoyer le témoignage</button>
+            {{ form_end(reviewForm) }}
         {% endif %}
     </section>
 

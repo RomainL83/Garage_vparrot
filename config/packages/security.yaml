@@ -35,10 +35,12 @@ security:
                 path: /
                 always_remember_me: true
 
-    # Ajoutez une exception pour la page "/register"
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_EMPLOYEE
+
     access_control:
         - { path: ^/register, roles: PUBLIC_ACCESS }
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_EMPLOYEE }
 
 # Configurations supplémentaires pour l'environnement de test
 when@test:

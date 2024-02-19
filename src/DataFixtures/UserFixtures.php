@@ -98,6 +98,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $newuser->setRoles($user['roles']);
             $newuser->setCompany($company);
             $newuser->setPassword($this->passwordHasher->hashPassword($newuser, $user['password']));
+            $newuser->setPicture($user['illustration']);
             $manager->persist($newuser);
             $manager->flush();
         }

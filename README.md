@@ -25,7 +25,7 @@ Concernant l'ADMIN
 
 
 ## Technologies Utilisées
-● Version PHP 8.2 ● Extension PHP : PDO ● Planethoster via FileZilla
+● Version PHP 8.2 ● Extension PHP : PDO ● OVH via FileZilla
 
 FRONT : 
 ●HTML 5 ● CSS 3 ● JavaScript ● Bootstrap ● jQuery 

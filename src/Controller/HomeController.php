@@ -56,7 +56,6 @@ class HomeController extends AbstractController
         }
 
         $reviews = $entityManager->getRepository(Review::class)->findBy(['isPublished'=>true]);
-        dump($reviews);
 
         return $this->render('homepage/index.html.twig', [
             'messageForm' => $formMessage->createView(),

@@ -25,11 +25,7 @@ Concernant l'ADMIN
 
 
 ## Technologies Utilisées
-- Symfony 6.3
-- EasyAdmin
-- Doctrine
-- Twig
-- Base de Données MySQL phpMyAdmin
+● Version PHP 8.2 ● Extension PHP : PDO ● Planethoster via FileZilla
 
 FRONT : 
 ●HTML 5 ● CSS 3 ● JavaScript ● Bootstrap ● jQuery 
@@ -39,12 +35,12 @@ BACK :
 
 
 ## Instructions sur la manière d'installer et de configurer l'application.
-- Pour obtenir une copie locale de ce projet, exécutez la commande suivante dans votre terminal :bash
-git clone https://github.com/RomainL83/Projet-Garage.git
+- Pour obtenir une copie locale de ce projet, exécutez la commande suivante dans votre terminal : 
+bash git clone https://github.com/RomainL83/Garage_vparrot.git
 
- Après avoir cloné le dépôt, naviguer dans le répertoire du projet : cd nom_du_projet
- - Ensuite, installez les dépendances nécessaires: composer install / npm install
- pour les bundles nécessaires.
+Après avoir cloné le dépôt, naviguer dans le répertoire du projet : cd nom_du_projet
+- Ensuite, installez les dépendances nécessaires: composer install / npm install
+pour les bundles nécessaires.
 
 Afin de pouvoir lancer votre application et acceder à votre page localhost.
 Assurez-vous que tous les fichiers du site web (HTML, CSS, JavaScript, etc.) sont 
@@ -59,6 +55,8 @@ Concernant la connexion avec la base de donnée, dans le fichier ".env" décomme
 - Modifiez 'DB_USER' par votre nom d'utilisateur à la place de 'nomutilisateur'
 - Modifiez 'DB_PASSWORD' par votre mot de passe si vous en avez un à la place de 
 'motdepasse
+
+pour obtenir ce résultat : DATABASE_URL="mysql://root@127.0.0.1:3306/ecf?serverVersion=mariadb-10.4.28&charset=utf8mb4"
 
 A ce stade important ! : Faire :
 - php bin/console doctrine:database:drop --force
@@ -78,14 +76,15 @@ Saisir les identifiants:
 - Pour tester les modes Admin et employé, des comptes test ont été crées et insérés dans la base de donnée:
 
 En rentrant l'adresse mail de l'Admin a savoir: vincentparrot@vparrot.com
-Mot de passe:
+Mot de passe: password
 Role : Admin
 
 Avec l'adresse mail : lauramartel@vparrot.com
-Mot de passe:
+Mot de passe: password
 Role: Employée
 
-L'application à été déployé à cette adresse:
+L'application à été déployé à cette adresse: (http://garagevparrot.ovh)
+
 
 ## TRELLO
 https://trello.com/invite/b/uD1MjnXV/ATTI205770be7212ce7e01bb5de910bf4cf3486749A6/ecf-vparrot
@@ -144,3 +143,6 @@ US13: Charte graphique
 US14: Préparation des livrables
 
 Préparer les fichiers nécessaires pour la mise en ligne et la présentation du projet (code source, base de données, readme, documentation technique).
+
+## 
+Toutes les fonctionnalités sont désormais pleinement fonctionnelles, et nous avons éliminé tous les problèmes suite à la dernière mise à jour. Si vous rencontrez des erreurs ou des bugs lors de l'utilisation de l'application, merci de contacter notre service d'assistance à l'adresse (locquet.romain83@gmail.com) pour que nous puissions procéder aux ajustements nécessaires

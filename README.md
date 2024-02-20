@@ -83,7 +83,7 @@ Avec l'adresse mail : lauramartel@vparrot.com
 Mot de passe: password
 Role: Employée
 
-L'application à été déployé à cette adresse: (http://garagevparrot.ovh)
+L'application à été déployé à cette adresse: (https://garagevparrotecf2024-ed9a0ebceedd.herokuapp.com/)
 
 
 ## TRELLO

@@ -78,3 +78,21 @@ if (loginForm) {
         // Logique de connexion ici
     });
 }
+
+const likeButtons = document.querySelectorAll('.like-button');
+likeButtons.forEach(likeBtn => {
+    likeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        let nbLikesElement = this.querySelector('#nb-likes');
+        let nbLikes = parseInt(nbLikesElement.innerText);
+        if (this.classList.contains('liked')) {
+            this.classList.remove('liked');
+            nbLikes--;
+        } else {
+            this.classList.add('liked');
+            nbLikes++;
+        }
+
+        nbLikesElement.innerText = nbLikes;
+    });
+});

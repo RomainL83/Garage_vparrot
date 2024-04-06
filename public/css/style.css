@@ -370,7 +370,7 @@ h1 {
     margin-top: 10px;
 }
 
-.car-card button {
+.car-card .default-button {
     background-color: #ac6201;
     color: white;
     border: none;
@@ -378,6 +378,12 @@ h1 {
     width: 100%;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.car-card .like-button {
+    color: blue;
+    border: none;
+    background: transparent;
 }
 
 /* BANDEAU DE FILTRE */

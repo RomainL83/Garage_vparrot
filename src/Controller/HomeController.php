@@ -12,6 +12,7 @@ use App\Form\ReviewType;
 use App\Service\CarUtils;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,5 +64,14 @@ class HomeController extends AbstractController
             'reviewForm' => $formReview->createView(),
             'reviews' => $reviews,
         ]);
+    }
+
+    /**
+     * @Route("/like/{id}", methods={"POST"}, name="app_like")
+     */
+    public function like(Car $car): JsonResponse
+    {
+        dd($car);
+        return $this->json(["aze" => "aze"]);
     }
 }

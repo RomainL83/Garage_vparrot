@@ -91,6 +91,17 @@ likeButtons.forEach(likeBtn => {
         } else {
             this.classList.add('liked');
             nbLikes++;
+            // use Fetch API to call the /like route
+            const carId = this.getAttribute('data-car-id');
+            fetch('/like/' + carId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(response => console.log(JSON.stringify(response)))
+            .catch(error => console.log("Erreur : " + error));
         }
 
         nbLikesElement.innerText = nbLikes;

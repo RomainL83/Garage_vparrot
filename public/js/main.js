@@ -83,27 +83,36 @@ const likeButtons = document.querySelectorAll('.like-button');
 likeButtons.forEach(likeBtn => {
     likeBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        let nbLikesElement = this.querySelector('#nb-likes');
+        const nbLikesElement = this.querySelector('#nb-likes');
         let nbLikes = parseInt(nbLikesElement.innerText);
-        if (this.classList.contains('liked')) {
-            this.classList.remove('liked');
-            nbLikes--;
-        } else {
-            this.classList.add('liked');
-            nbLikes++;
-            // use Fetch API to call the /like route
-            const carId = this.getAttribute('data-car-id');
-            fetch('/like/' + carId, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(response => console.log(JSON.stringify(response)))
-            .catch(error => console.log("Erreur : " + error));
-        }
+        const carId = this.getAttribute('data-car-id');
+        const isLiked = this.classList.contains('liked');
+        const newLikesCount = isLiked ? nbLikes - 1 : nbLikes + 1;
 
-        nbLikesElement.innerText = nbLikes;
+        // Appeler la route /like pour mettre à jour le serveur
+        fetch('/like/' + carId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                liked: !isLiked // Envoyer le nouvel état du like
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Mettre à jour l'interface utilisateur seulement si le serveur confirme le changement
+            this.classList.toggle('liked', !isLiked);
+            nbLikesElement.innerText = newLikesCount;
+            console.log('Server response:', JSON.stringify(data));
+        })
+        .catch(error => {
+            console.error("Erreur lors de la mise à jour du like :", error);
+        });
     });
 });

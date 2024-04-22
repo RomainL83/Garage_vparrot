@@ -56,7 +56,7 @@ class StoreHoursType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => StoreHours::class,
+            'data_class' => StoreHoursType::class,
         ]);
     }
 }

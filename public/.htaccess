@@ -35,3 +35,8 @@ DirectoryIndex index.php
 
     </IfModule>
 </IfModule>
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://trusted.cdn.com; object-src 'none'"
+    Content-Security-Policy: default-src 'self'; report-uri /csp-violation-report-endpoint/
+
+</IfModule>

@@ -72,6 +72,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->cars = new ArrayCollection();
         $this->reviews = new ArrayCollection();
     }
+    public function __toString(): string
+    {
+        // Retourne l'email ou un autre attribut unique qui représente l'utilisateur
+        return $this->email;
+    }
 
     public function getId(): ?int
     {

@@ -32,7 +32,7 @@ class CarCrudController extends AbstractCrudController
         yield TextField::new('distribution', 'Distribution');
         yield TextField::new('fuel', 'Carburant');
         yield ImageField::new('illustration', 'Illustration')
-        ->setBasePath('/img/cars') 
+        ->setBasePath('/img') 
         ->setUploadDir('public/img/cars') 
         ->setUploadedFileNamePattern('[randomhash].[extension]')
         ->setRequired(false);

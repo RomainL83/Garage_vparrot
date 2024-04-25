@@ -71,7 +71,6 @@ class HomeController extends AbstractController
      */
     public function like(Car $car): JsonResponse
     {
-        dd($car);
         return $this->json(["aze" => "aze"]);
     }
 }
